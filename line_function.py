@@ -1,20 +1,22 @@
 import numpy as np
 
 
-def line_to_line_function(array):
-    next = np.array([])
-    j=0
-    next = np.append(next,0)
-    for i in range(1,array.size-1):
-        j= 1*array[i-1]+5*array[i]
-        if j%2 == 0:
-            dummy = np.append(next, 0)
-            next = dummy
+def line_to_line_function(x):
+    size = x.size
+    y = np.array([0,0])
+    iteration = np.array([])
+    j=np.array([])
+
+    for i in range(0,size-1):
+        if i!=0 or i!=size-1:
+            j[i] = x[i-1]+x[i]+5*x[i+1]
+
+    for a in range(0,j.size-1):
+        if j[a]%2 == 0:
+            iteration[a] = 0
         else:
-            dummy = np.append(next, 1)
-            next = dummy
-    next = np.append(next, 0)
-    print(next)
+            iteration[a] = 1
+    np.append(y,j)
     return next
 
 
