@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 from matplotlib import cm
 import copy
 import imageio
-array_size = 60
+array_size = 200
 line = np.random.randint(2, size=array_size)
 line[0]=0
 line[line.size-1]=0
@@ -16,5 +16,5 @@ for i in range(0,500):
     bitmap = a
     line = new
     plt.clf()
-    plt.imshow(bitmap, cmap=cm.gray)
+    plt.imshow(bitmap, cmap=plt.get_cmap('Blues'))
     plt.pause(0.1)
