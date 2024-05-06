@@ -2,26 +2,18 @@ import numpy as np
 
 
 def line_to_line_function(x):
-    print("Input size:",x.size)
+
     y = np.array([0,0])
     iteration = np.array([])
-    j=np.array([])
-
+    print(x.size)
     for i in range(1,x.size-1):
-        print(i)
-        j = np.append(j,x[i-1]+x[i]+5*x[i+1])
-
-    print("Middle size:",j.size)
-    for a in range(0,j.size):
-        if j[a]%2 == 0:
-            iteration = np.append(iteration,0)
+        if x[i-1] == 1:
+            iteration = np.append(iteration, 1)
         else:
-            iteration = np.append(iteration,1)
-    print("Middle after bin:",iteration.size)
+            iteration = np.append(iteration, 0)
 
+    print(iteration.size)
     y = np.insert(y,1,iteration)
-
-    print("output size:",y.size)
     return y
 
 
