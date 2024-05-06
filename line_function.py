@@ -4,20 +4,17 @@ import numpy as np
 def line_to_line_function(array):
     next = np.array([])
     j=0
-    for i in range(0,array.size):
-        if i == 0 or i==array.size:
-            dummy = np.append(next,0)
+    next = np.append(next,0)
+    for i in range(1,array.size-1):
+        j= 1*array[i-1]+5*array[i]
+        if j%2 == 0:
+            dummy = np.append(next, 0)
             next = dummy
-
         else:
-            j= 1*array[i-1]+5*array[i]
-            if j%2 == 0:
-                dummy = np.append(next, 0)
-                next = dummy
-            else:
-                dummy = np.append(next, 1)
-                next = dummy
-
+            dummy = np.append(next, 1)
+            next = dummy
+    next = np.append(next, 0)
+    print(next)
     return next
 
 
